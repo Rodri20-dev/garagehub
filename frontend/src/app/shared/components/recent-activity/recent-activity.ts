@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+
+import { DashboardService } from '../../../core/services/dashboard';
 
 @Component({
   selector: 'app-recent-activity',
@@ -8,26 +10,8 @@ import { Component } from '@angular/core';
 })
 export class RecentActivityComponent {
 
-  activities = [
+  private dashboardService = inject(DashboardService);
 
-    {
-      icon: '🚗',
-      title: 'Honda Civic EJ8 added',
-      date: 'Today'
-    },
-
-    {
-      icon: '⛽',
-      title: 'Fuel record created',
-      date: 'Yesterday'
-    },
-
-    {
-      icon: '🔧',
-      title: 'Oil change completed',
-      date: '2 days ago'
-    }
-
-  ];
+  activities = this.dashboardService.getRecentActivities();
 
 }

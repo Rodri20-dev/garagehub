@@ -1,0 +1,40 @@
+<div class="rounded-2xl border border-slate-700 bg-slate-800 p-6">
+
+    <h2 class="mb-6 text-xl font-semibold text-white">
+
+        Recent Activity
+
+    </h2>
+
+    @for(activity of activities; track activity.title){
+
+        <div
+            class="mb-4 flex items-center gap-4 rounded-xl bg-slate-900 p-4">
+
+            <div class="text-2xl">
+
+                {{ activity.icon }}
+
+            </div>
+
+            <div>
+
+                <p class="font-medium text-white">
+
+                    {{ activity.title }}
+
+                </p>
+
+                <p class="text-sm text-slate-400">
+
+                    {{ activity.date }}
+
+                </p>
+
+            </div>
+
+        </div>
+
+    }
+
+</div>

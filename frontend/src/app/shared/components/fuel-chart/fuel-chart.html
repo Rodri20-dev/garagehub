@@ -1,0 +1,30 @@
+<div class="rounded-2xl border border-slate-700 bg-slate-800 p-6 shadow-lg">
+
+    <div class="mb-6 flex items-center justify-between">
+
+        <div>
+
+            <h2 class="text-xl font-semibold text-white">
+                Fuel Consumption
+            </h2>
+
+            <p class="mt-1 text-sm text-slate-400">
+                Average fuel consumption over the last 6 months
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="h-80">
+
+        <canvas
+            baseChart
+            [data]="lineChartData"
+            [options]="lineChartOptions"
+            type="line">
+        </canvas>
+
+    </div>
+
+</div>

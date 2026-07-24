@@ -1,33 +1,50 @@
-<div>
+<app-page-header
+    title="Dashboard"
+    subtitle="Manage your garage in one place">
+</app-page-header>
 
-  <h2 class="mb-8 text-3xl font-bold text-white">
-
-    Dashboard
-
-  </h2>
-
-  <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+<div class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
 
     <app-stat-card
-      title="Vehicles"
-      value="1">
+        title="Vehicles"
+        value="1"
+        subtitle="Registered vehicles"
+        icon="🚗"
+        accentColor="bg-blue-600">
     </app-stat-card>
 
     <app-stat-card
-      title="Fuel Records"
-      value="0">
+        title="Fuel Records"
+        value="24"
+        subtitle="Total refuels"
+        icon="⛽"
+        accentColor="bg-green-600">
     </app-stat-card>
 
     <app-stat-card
-      title="Maintenance"
-      value="0">
+        title="Maintenance"
+        value="3"
+        subtitle="Scheduled services"
+        icon="🔧"
+        accentColor="bg-amber-500">
     </app-stat-card>
 
     <app-stat-card
-      title="Expenses"
-      value="0">
+        title="Expenses"
+        value="€1 240"
+        subtitle="Total spent"
+        icon="💰"
+        accentColor="bg-red-600">
     </app-stat-card>
 
-  </div>
+</div>
+
+<div class="mt-10 grid grid-cols-1 gap-6 xl:grid-cols-3">
+
+    <div class="xl:col-span-2">
+        <app-fuel-chart />
+    </div>
+
+    <app-recent-activity />
 
 </div>

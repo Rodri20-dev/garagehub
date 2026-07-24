@@ -9,7 +9,13 @@ import { Component, input } from '@angular/core';
 export class StatCardComponent {
 
   title = input.required<string>();
+
   value = input.required<string>();
+
   icon = input<string>('📊');
+
+  subtitle = input<string>('');
+
+  accentColor = input<string>('bg-blue-500');
 
 }

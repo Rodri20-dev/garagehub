@@ -1,5 +1,6 @@
 import { Component, input } from '@angular/core';
-
+import { Router } from '@angular/router';
+import { inject } from '@angular/core';
 import { Vehicle } from '../../../../core/models/vehicle.model';
 
 @Component({
@@ -10,7 +11,14 @@ import { Vehicle } from '../../../../core/models/vehicle.model';
   styleUrl: './vehicle-card.css'
 })
 export class VehicleCardComponent {
+  
+  private router = inject(Router);
 
+  goToDetails() {
+
+    this.router.navigate(['/garage', this.vehicle().id]);
+
+  }
   vehicle = input.required<Vehicle>();
 
 }

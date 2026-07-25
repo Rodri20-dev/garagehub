@@ -20,4 +20,10 @@ export class VehicleService {
 
   }
 
+  getVehicleById(id: number): Vehicle | undefined {
+
+    return vehiclesMock.find(vehicle => vehicle.id === id);
+
+  }
+
 }

@@ -29,6 +29,13 @@ export const routes: Routes = [
     },
 
     {
+      path: 'garage/:id',
+      loadComponent: () =>
+        import('./features/garage/pages/vehicle-details/vehicle-details')
+          .then(c => c.VehicleDetailsComponent)
+    },
+
+    {
       path: 'fuel',
       loadComponent: () =>
         import('./features/fuel/fuel')
@@ -54,7 +61,9 @@ export const routes: Routes = [
       loadComponent: () =>
         import('./features/settings/settings')
           .then(c => c.SettingsComponent)
-    }
+    },
+
+    
 
   ]
 }

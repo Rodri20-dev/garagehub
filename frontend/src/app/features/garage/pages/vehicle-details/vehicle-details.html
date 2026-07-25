@@ -1,0 +1,57 @@
+@if(vehicle){
+
+<div class="space-y-8">
+
+    <app-vehicle-hero
+        [vehicle]="vehicle">
+    </app-vehicle-hero>
+
+    <div class="grid gap-4 md:grid-cols-2">
+
+        <app-vehicle-info-card
+            label="Engine"
+            [value]="vehicle.engine">
+        </app-vehicle-info-card>
+
+        <app-vehicle-info-card
+            label="Horsepower"
+            [value]="vehicle.horsepower + ' HP'">
+        </app-vehicle-info-card>
+
+        <app-vehicle-info-card
+            label="Transmission"
+            [value]="vehicle.transmission">
+        </app-vehicle-info-card>
+
+        <app-vehicle-info-card
+            label="Fuel"
+            [value]="vehicle.fuel">
+        </app-vehicle-info-card>
+
+        <app-vehicle-info-card
+            label="Mileage"
+            [value]="vehicle.mileage.toLocaleString() + ' km'">
+        </app-vehicle-info-card>
+
+        <app-vehicle-info-card
+            label="Year"
+            [value]="vehicle.year.toString()">
+        </app-vehicle-info-card>
+
+    </div>
+
+</div>
+
+} @else {
+
+<div class="rounded-xl bg-red-900/20 p-8">
+
+    <h2 class="text-2xl font-bold text-red-400">
+
+        Vehicle not found
+
+    </h2>
+
+</div>
+
+}

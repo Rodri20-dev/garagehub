@@ -1,1 +1,33 @@
-<p>overview works!</p>
+<div class="grid gap-4 md:grid-cols-2">
+
+    <app-vehicle-info-card
+        label="Engine"
+        [value]="vehicle().engine">
+    </app-vehicle-info-card>
+
+    <app-vehicle-info-card
+        label="Horsepower"
+        [value]="vehicle().horsepower + ' HP'">
+    </app-vehicle-info-card>
+
+    <app-vehicle-info-card
+        label="Transmission"
+        [value]="vehicle().transmission">
+    </app-vehicle-info-card>
+
+    <app-vehicle-info-card
+        label="Fuel"
+        [value]="vehicle().fuel">
+    </app-vehicle-info-card>
+
+    <app-vehicle-info-card
+        label="Mileage"
+        [value]="vehicle().mileage.toLocaleString() + ' km'">
+    </app-vehicle-info-card>
+
+    <app-vehicle-info-card
+        label="Year"
+        [value]="vehicle().year.toString()">
+    </app-vehicle-info-card>
+
+</div>

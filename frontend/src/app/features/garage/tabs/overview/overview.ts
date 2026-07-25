@@ -1,9 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+
+import { Vehicle } from '../../../../core/models/vehicle.model';
+import { VehicleInfoCardComponent } from '../../components/vehicle-info-card/vehicle-info-card';
 
 @Component({
   selector: 'app-overview',
-  imports: [],
+  standalone: true,
+  imports: [
+    VehicleInfoCardComponent
+  ],
   templateUrl: './overview.html',
-  styleUrl: './overview.css',
+  styleUrl: './overview.css'
 })
-export class Overview {}
+export class OverviewComponent {
+
+  vehicle = input.required<Vehicle>();
+
+}

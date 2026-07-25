@@ -6,40 +6,82 @@
         [vehicle]="vehicle">
     </app-vehicle-hero>
 
-    <div class="grid gap-4 md:grid-cols-2">
+    <app-vehicle-tabs
+        [activeTab]="selectedTab()"
+        (tabChanged)="selectedTab.set($event)">
+    </app-vehicle-tabs>
 
-        <app-vehicle-info-card
-            label="Engine"
-            [value]="vehicle.engine">
-        </app-vehicle-info-card>
+    @if(selectedTab() === 'Overview'){
 
-        <app-vehicle-info-card
-            label="Horsepower"
-            [value]="vehicle.horsepower + ' HP'">
-        </app-vehicle-info-card>
+        <app-overview
+            [vehicle]="vehicle">
+        </app-overview>
 
-        <app-vehicle-info-card
-            label="Transmission"
-            [value]="vehicle.transmission">
-        </app-vehicle-info-card>
+    }
 
-        <app-vehicle-info-card
-            label="Fuel"
-            [value]="vehicle.fuel">
-        </app-vehicle-info-card>
+    <div class="pt-4">
 
-        <app-vehicle-info-card
-            label="Mileage"
-            [value]="vehicle.mileage.toLocaleString() + ' km'">
-        </app-vehicle-info-card>
+        @if(selectedTab() === 'Overview'){
 
-        <app-vehicle-info-card
-            label="Year"
-            [value]="vehicle.year.toString()">
-        </app-vehicle-info-card>
+            <p class="text-slate-400">
+
+                Overview works!
+
+            </p>
+
+        }
+
+        @if(selectedTab() === 'Fuel'){
+
+            <p class="text-slate-400">
+
+                <app-fuel></app-fuel>
+
+            </p>
+
+        }
+
+        @if(selectedTab() === 'Maintenance'){
+
+            <p class="text-slate-400">
+
+                <app-maintenance></app-maintenance>
+
+            </p>
+
+        }
+
+        @if(selectedTab() === 'Expenses'){
+
+            <p class="text-slate-400">
+
+                <app-expenses></app-expenses>
+
+            </p>
+
+        }
+
+        @if(selectedTab() === 'Modifications'){
+
+            <p class="text-slate-400">
+
+                <app-modifications></app-modifications>
+
+            </p>
+
+        }
+
+        @if(selectedTab() === 'Gallery'){
+
+            <p class="text-slate-400">
+
+                <app-gallery></app-gallery>
+
+            </p>
+
+        }
 
     </div>
-
 </div>
 
 } @else {
@@ -55,3 +97,4 @@
 </div>
 
 }
+

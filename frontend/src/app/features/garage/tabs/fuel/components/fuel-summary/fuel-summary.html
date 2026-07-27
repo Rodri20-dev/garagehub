@@ -1,0 +1,23 @@
+<div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+
+    <app-fuel-summary-card
+        title="Total Spent"
+        [value]="'€' + totalSpent.toFixed(2)">
+    </app-fuel-summary-card>
+
+    <app-fuel-summary-card
+        title="Average Price/L"
+        [value]="'€' + averagePrice.toFixed(3)">
+    </app-fuel-summary-card>
+
+    <app-fuel-summary-card
+        title="Total Liters"
+        [value]="totalLiters.toFixed(2) + ' L'">
+    </app-fuel-summary-card>
+
+    <app-fuel-summary-card
+        title="Last Refuel"
+        [value]="lastRefuel">
+    </app-fuel-summary-card>
+
+</div>

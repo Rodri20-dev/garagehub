@@ -1,0 +1,135 @@
+<h2 mat-dialog-title>
+
+    Add Fuel Record
+
+</h2>
+
+<form [formGroup]="fuelForm">
+
+    <mat-dialog-content class="grid gap-4">
+
+        <mat-form-field appearance="outline">
+
+            <mat-label>Date</mat-label>
+
+            <input
+                matInput
+                type="date"
+                formControlName="date">
+
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+
+            <mat-label>Fuel Type</mat-label>
+
+            <mat-select formControlName="fuelType">
+
+                <mat-option value="Gasoline 95">
+
+                    Gasoline 95
+
+                </mat-option>
+
+                <mat-option value="Gasoline 98">
+
+                    Gasoline 98
+
+                </mat-option>
+
+                <mat-option value="Diesel">
+
+                    Diesel
+
+                </mat-option>
+
+            </mat-select>
+
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+
+            <mat-label>Gas Station</mat-label>
+
+            <input
+                matInput
+                formControlName="gasStation">
+
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+
+            <mat-label>Price per Liter (€)</mat-label>
+
+            <input
+                matInput
+                type="number"
+                formControlName="pricePerLiter">
+
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+
+            <mat-label>Liters</mat-label>
+
+            <input
+                matInput
+                type="number"
+                formControlName="liters">
+
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+
+            <mat-label>Mileage</mat-label>
+
+            <input
+                matInput
+                type="number"
+                formControlName="mileage">
+
+        </mat-form-field>
+
+        <mat-checkbox formControlName="fullTank">
+
+            Full tank
+
+        </mat-checkbox>
+
+        <mat-form-field appearance="outline">
+
+            <mat-label>Notes</mat-label>
+
+            <textarea
+                matInput
+                rows="3"
+                formControlName="notes">
+            </textarea>
+
+        </mat-form-field>
+
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end">
+
+        <button
+            mat-button
+            (click)="cancel()">
+
+            Cancel
+
+        </button>
+
+        <button
+            mat-flat-button
+            color="primary"
+            (click)="save()"
+            [disabled]="fuelForm.invalid">
+
+            Save
+
+        </button>
+
+    </mat-dialog-actions>
+
+</form>

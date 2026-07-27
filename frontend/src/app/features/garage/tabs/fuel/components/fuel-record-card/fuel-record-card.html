@@ -1,0 +1,99 @@
+<div
+    class="rounded-2xl border border-slate-700 bg-slate-800 p-6 shadow-lg">
+
+    <div class="flex items-center justify-between">
+
+        <div>
+
+            <h3 class="text-lg font-bold text-white">
+
+                {{ record().gasStation }}
+
+            </h3>
+
+            <p class="text-slate-400">
+
+                {{ formatDate(record().date) }}
+
+            </p>
+
+        </div>
+
+        <span
+            class="rounded-lg bg-blue-600 px-3 py-1 text-sm text-white">
+
+            {{ record().fuelType }}
+
+        </span>
+
+    </div>
+
+    <div class="mt-6 grid grid-cols-2 gap-4">
+
+        <div>
+
+            <p class="text-sm text-slate-400">
+
+                Liters
+
+            </p>
+
+            <p class="text-xl font-bold text-white">
+
+                {{ record().liters }} L
+
+            </p>
+
+        </div>
+
+        <div>
+
+            <p class="text-sm text-slate-400">
+
+                Total
+
+            </p>
+
+            <p class="text-xl font-bold text-white">
+
+                €{{ record().totalCost }}
+
+            </p>
+
+        </div>
+
+        <div>
+
+            <p class="text-sm text-slate-400">
+
+                Price/L
+
+            </p>
+
+            <p class="text-white">
+
+                €{{ record().pricePerLiter }}
+
+            </p>
+
+        </div>
+
+        <div>
+
+            <p class="text-sm text-slate-400">
+
+                Mileage
+
+            </p>
+
+            <p class="text-white">
+
+                {{ record().mileage.toLocaleString() }} km
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>

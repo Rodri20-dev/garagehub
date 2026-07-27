@@ -1,0 +1,11 @@
+<div class="space-y-4">
+
+    @for(record of records(); track record.id){
+
+        <app-fuel-record-card
+            [record]="record">
+        </app-fuel-record-card>
+
+    }
+
+</div>

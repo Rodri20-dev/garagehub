@@ -1,15 +1,19 @@
-<div class="rounded-2xl bg-slate-800 p-8">
+<div class="space-y-6">
 
-    <h2 class="text-2xl font-bold text-white">
+    <div class="flex justify-end">
 
-        Fuel
+        <app-add-fuel-button
+            (clicked)="openAddFuelDialog()">
+        </app-add-fuel-button>
 
-    </h2>
+    </div>
 
-    <p class="mt-2 text-slate-400">
+    <app-fuel-summary
+        [records]="fuels()">
+    </app-fuel-summary>
 
-        Manage all fuel refuels, consumption statistics and fuel costs.
-
-    </p>
+    <app-fuel-history
+        [records]="fuels()">
+    </app-fuel-history>
 
 </div>

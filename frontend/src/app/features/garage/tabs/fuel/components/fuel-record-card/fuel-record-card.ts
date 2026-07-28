@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 import { Fuel } from '../../../../../../core/models/fuel.model';
 
@@ -13,9 +13,25 @@ export class FuelRecordCardComponent {
 
   record = input.required<Fuel>();
 
+  edit = output<Fuel>();
+
+  delete = output<Fuel>();
+
   formatDate(date: string): string {
 
     return new Date(date).toLocaleDateString('pt-PT');
+
+  }
+
+  onEdit(): void {
+
+    this.edit.emit(this.record());
+
+  }
+
+  onDelete(): void {
+
+    this.delete.emit(this.record());
 
   }
 }

@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 import { Fuel } from '../../../../../../core/models/fuel.model';
 
@@ -17,4 +17,19 @@ export class FuelHistoryComponent {
 
   records = input.required<Fuel[]>();
 
+  edit = output<Fuel>();
+
+  delete = output<Fuel>();
+
+  onEdit(record: Fuel): void {
+
+    this.edit.emit(record);
+
+  }
+
+  onDelete(record: Fuel): void {
+
+    this.delete.emit(record);
+
+  }
 }

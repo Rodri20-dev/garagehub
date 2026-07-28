@@ -1,15 +1,17 @@
 @if(vehicle){
 
-<div class="space-y-8">
+<div class="mb-6 space-y-8">
 
     <app-vehicle-hero
         [vehicle]="vehicle">
     </app-vehicle-hero>
 
     <app-vehicle-tabs
-        [activeTab]="selectedTab()"
-        (tabChanged)="selectedTab.set($event)">
-    </app-vehicle-tabs>
+    [activeTab]="selectedTab()"
+    (tabChanged)="selectedTab.set($event)">
+</app-vehicle-tabs>
+
+<div class="mt-8">
 
     @if(selectedTab() === 'Overview'){
 
@@ -19,69 +21,37 @@
 
     }
 
-    <div class="pt-4">
+    @if(selectedTab() === 'Fuel'){
 
-        @if(selectedTab() === 'Overview'){
+        <app-fuel></app-fuel>
 
-            <p class="text-slate-400">
+    }
 
-                Overview works!
+    @if(selectedTab() === 'Maintenance'){
 
-            </p>
+        <app-maintenance></app-maintenance>
 
-        }
+    }
 
-        @if(selectedTab() === 'Fuel'){
+    @if(selectedTab() === 'Expenses'){
 
-            <p class="text-slate-400">
+        <app-expenses></app-expenses>
 
-                <app-fuel></app-fuel>
+    }
 
-            </p>
+    @if(selectedTab() === 'Modifications'){
 
-        }
+        <app-modifications></app-modifications>
 
-        @if(selectedTab() === 'Maintenance'){
+    }
 
-            <p class="text-slate-400">
+    @if(selectedTab() === 'Gallery'){
 
-                <app-maintenance></app-maintenance>
+        <app-gallery></app-gallery>
 
-            </p>
+    }
 
-        }
-
-        @if(selectedTab() === 'Expenses'){
-
-            <p class="text-slate-400">
-
-                <app-expenses></app-expenses>
-
-            </p>
-
-        }
-
-        @if(selectedTab() === 'Modifications'){
-
-            <p class="text-slate-400">
-
-                <app-modifications></app-modifications>
-
-            </p>
-
-        }
-
-        @if(selectedTab() === 'Gallery'){
-
-            <p class="text-slate-400">
-
-                <app-gallery></app-gallery>
-
-            </p>
-
-        }
-
-    </div>
+</div>
 </div>
 
 } @else {

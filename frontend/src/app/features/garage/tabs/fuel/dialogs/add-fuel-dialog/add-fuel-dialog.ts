@@ -1,13 +1,14 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
-import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FuelService } from '../../../../../../core/services/fuel';
+import { Fuel } from '../../../../../../core/models/fuel.model';
 
 @Component({
   selector: 'app-add-fuel-dialog',
@@ -31,6 +32,8 @@ export class AddFuelDialogComponent {
   private fuelService = inject(FuelService);
 
   private dialogRef = inject(MatDialogRef<AddFuelDialogComponent>);
+  
+  readonly data = inject<Fuel | null>(MAT_DIALOG_DATA);
 
   fuelForm = this.fb.group({
 
@@ -52,6 +55,36 @@ export class AddFuelDialogComponent {
 
   });
 
+  constructor() {
+
+    if (!this.data) {
+
+      return;
+
+    }
+
+    this.fuelForm.patchValue({
+
+      date: this.data.date,
+
+      fuelType: this.data.fuelType,
+
+      gasStation: this.data.gasStation,
+
+      pricePerLiter: this.data.pricePerLiter,
+
+      liters: this.data.liters,
+
+      mileage: this.data.mileage,
+
+      fullTank: this.data.fullTank,
+
+      notes: this.data.notes
+
+    });
+
+  }
+
   save(): void {
 
     if (this.fuelForm.invalid) {
@@ -60,33 +93,45 @@ export class AddFuelDialogComponent {
 
     }
 
-    const form = this.fuelForm.getRawValue();
+    const formValue = this.fuelForm.getRawValue();
 
-    this.fuelService.addFuel({
+    const fuel: Fuel = {
 
-      id: Date.now(),
+      id: this.data?.id ?? Date.now(),
 
       vehicleId: 1,
 
-      date: form.date!,
+      date: formValue.date!,
 
-      fuelType: form.fuelType!,
+      fuelType: formValue.fuelType!,
 
-      gasStation: form.gasStation!,
+      gasStation: formValue.gasStation!,
 
-      pricePerLiter: form.pricePerLiter!,
+      pricePerLiter: formValue.pricePerLiter!,
 
-      liters: form.liters!,
+      liters: formValue.liters!,
 
-      totalCost: form.pricePerLiter! * form.liters!,
+      totalCost:
+        formValue.pricePerLiter! *
+        formValue.liters!,
 
-      mileage: form.mileage!,
+      mileage: formValue.mileage!,
 
-      fullTank: form.fullTank!,
+      fullTank: formValue.fullTank!,
 
-      notes: form.notes ?? ''
+      notes: formValue.notes ?? ''
 
-    });
+    };
+
+    if (this.data) {
+
+      this.fuelService.updateFuel(fuel);
+
+    } else {
+
+      this.fuelService.addFuel(fuel);
+
+    }
 
     this.dialogRef.close(true);
 

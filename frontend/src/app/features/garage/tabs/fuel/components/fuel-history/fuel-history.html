@@ -1,9 +1,11 @@
-<div class="space-y-4">
+<div class="mt-8 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
 
     @for(record of records(); track record.id){
 
         <app-fuel-record-card
-            [record]="record">
+            [record]="record"
+            (edit)="onEdit($event)"
+            (delete)="onDelete($event)">
         </app-fuel-record-card>
 
     }

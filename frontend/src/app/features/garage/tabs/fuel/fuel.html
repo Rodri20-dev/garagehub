@@ -13,7 +13,9 @@
     </app-fuel-summary>
 
     <app-fuel-history
-        [records]="fuels()">
+        [records]="fuels()"
+        (edit)="editFuel($event)"
+        (delete)="deleteFuel($event)">
     </app-fuel-history>
 
 </div>

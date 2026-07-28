@@ -22,14 +22,14 @@ export class FuelService {
 
   }
 
-    getTotalSpent(vehicleId: number): number {
+  getTotalSpent(vehicleId: number): number {
 
     return this.getFuelByVehicle(vehicleId)
-        .reduce((total, fuel) => total + fuel.totalCost, 0);
+      .reduce((total, fuel) => total + fuel.totalCost, 0);
 
-    }
+  }
 
-    getAveragePrice(vehicleId: number): number {
+  getAveragePrice(vehicleId: number): number {
 
     const fuels = this.getFuelByVehicle(vehicleId);
 
@@ -46,19 +46,41 @@ export class FuelService {
 
     return total / fuels.length;
 
-    }
+  }
 
-    getTotalLiters(vehicleId: number): number {
+  getTotalLiters(vehicleId: number): number {
 
     return this.getFuelByVehicle(vehicleId)
-        .reduce((sum, fuel) => sum + fuel.liters, 0);
+      .reduce((sum, fuel) => sum + fuel.liters, 0);
 
-    }
+  }
 
-    getLastRefuel(vehicleId: number) {
+  getLastRefuel(vehicleId: number) {
 
     return this.getFuelByVehicle(vehicleId)[0];
 
+  }
+
+  deleteFuel(id: number): void {
+
+    this.fuels = this.fuels.filter(
+      fuel => fuel.id !== id
+    );
+
+  }
+
+  updateFuel(updatedFuel: Fuel): void {
+
+    const index = this.fuels.findIndex(
+      fuel => fuel.id === updatedFuel.id
+    );
+
+    if (index !== -1) {
+
+      this.fuels[index] = updatedFuel;
+
     }
+
+  }
 
 }

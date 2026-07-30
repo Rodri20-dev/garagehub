@@ -1,11 +1,21 @@
-<div class="rounded-2xl bg-slate-800 p-8">
+<div class="space-y-6">
 
-    <h2 class="text-2xl font-bold text-white">
-        Maintenance
-    </h2>
+    <div class="flex justify-end">
 
-    <p class="mt-2 text-slate-400">
-        Track services, repairs and scheduled maintenance.
-    </p>
+        <app-add-maintenance-button
+            (clicked)="openAddMaintenanceDialog()">
+        </app-add-maintenance-button>
+
+    </div>
+
+    <app-maintenance-summary
+        [records]="records()">
+    </app-maintenance-summary>
+
+    <app-maintenance-history
+        [records]="records()"
+        (edit)="editMaintenance($event)"
+        (delete)="deleteMaintenance($event)">
+    </app-maintenance-history>
 
 </div>

@@ -1,0 +1,13 @@
+<div class="space-y-4">
+
+    @for(record of records(); track record.id){
+
+        <app-expense-record-card
+            [record]="record"
+            (edit)="onEdit($event)"
+            (delete)="onDelete($event)">
+        </app-expense-record-card>
+
+    }
+
+</div>
